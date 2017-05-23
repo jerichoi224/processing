@@ -8,14 +8,13 @@ class point{
     yspeed = random(- 3, 3);
     xpos = random(0, width);
     ypos = random(0, height);
-    //radius = random(60, 150);
-    radius = 30;
+    radius = random(50, 80);
   }
   void move(){
-    if(xpos > width || xpos < 0){
+    if(xpos > width + 20 || xpos < - 20){
       xspeed *= -1;
     }
-    if(ypos > height || ypos < 0){
+    if(ypos > height + 20 || ypos < - 20){
       yspeed *= -1;
     }
     xpos += xspeed;
@@ -24,13 +23,15 @@ class point{
 }
 point[] points = new point[1000];
 void setup(){
-  size(500, 500);
+  size(1000, 1000);
   for(int i = 0; i < points.length; i++){
     points[i] = new point();
   }
 }
 void draw(){
-  stroke(100);
+  if(mousePressed)
+    saveFrame("/screenshots/img###.jpg");
+  stroke(0);
   background(255);
   for(int i = 0; i < points.length; i++){
     points[i].move();
@@ -40,6 +41,9 @@ void draw(){
       if(dis < points[i].radius){
         line(points[i].xpos, points[i].ypos, points[j].xpos, points[j].ypos);
         points[i].lineCount++;
+      }
+      if(points[i].lineCount == 10){
+        break;
       }
     }
   }
