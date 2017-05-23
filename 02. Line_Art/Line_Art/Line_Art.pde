@@ -30,7 +30,7 @@ void setup(){
 }
 void draw(){
   if(mousePressed)
-    saveFrame("/screenshots/img###.jpg");
+    saveFrame("../screenshots/img####.jpg");
   stroke(0);
   background(255);
   for(int i = 0; i < points.length; i++){
