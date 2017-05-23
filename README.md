@@ -1,6 +1,6 @@
-# processing
+# Processing Experiments
 
-Just me trying out stuff with Processing
+Just me trying out stuff with Processing in attempt to get a better understanding of the language
 
 01. Circle Testing
 - Just an attempt to recreate the web app shown in the welcome screen of the Official "Hello Processing" Tutorial 
@@ -12,4 +12,4 @@ Just me trying out stuff with Processing
 - Creates a random, everchanging image.
 - Left-Click to Save the frame.
 
-![alt text](https://github.com/jerichoi224/processing/blob/master/02.%20Line_Art/screenshots/img080.jpg)
+![alt text](https://github.com/jerichoi224/processing_experiment/blob/master/02.%20Line_Art/screenshots/img075.jpg)
