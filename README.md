@@ -13,3 +13,10 @@ Just me trying out stuff with Processing in attempt to get a better understandin
 - Left-Click to Save the frame.
 
 ![alt text](https://github.com/jerichoi224/processing_experiment/blob/master/02.%20Line_Art/screenshots/img075.jpg)
+
+03. Maze Maker (Square)
+
+- A Random Maze Generator, with a path from the top left to bottom right.
+- Speed isn't the best, IMO. Instant up to 500 * 500. Unsuccessful in making a 1000 * 1000.
+
+![alt text](https://github.com/jerichoi224/processing_experiment/blob/master/03.%20Maze_Maker_Square/screenshots/maze_500_500.jpg)
