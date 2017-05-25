@@ -1,5 +1,21 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class Circle_Testing extends PApplet {
+
 class circle{
-  color c;
+  int c;
   float diameter, radius;
   float xpos, ypos; // coordinate of circle
   float xspeed, yspeed; // moving speed of circle
@@ -16,11 +32,11 @@ class circle{
     radius = diameter / 2;
     xpos = random(diameter, width - diameter);
     ypos = random(diameter, height - diameter);
-    xspeed = random(-.75, .75);
-    yspeed = random(-.75, .75);
+    xspeed = random(-.75f, .75f);
+    yspeed = random(-.75f, .75f);
     clicked = false;
   }
-  void nonClickDisplay(){
+  public void nonClickDisplay(){
     noStroke();
     int dr = width / 4; // disappearing range;
     //gets more transparent as it gets closer to the border
@@ -37,7 +53,7 @@ class circle{
     fill(100, alpha);
     rect(xpos - 2, ypos - 2, 4, 4);
   }
-  void clickDisplay(){
+  public void clickDisplay(){
     noStroke();
     int dr = width / 4; // disappearing range;
     //gets more transparent as it gets closer to the border
@@ -59,7 +75,7 @@ class circle{
       rect(xpos - 2, ypos - 2, 4, 4);
     }
   }
-  void move(){
+  public void move(){
     if(xpos > width - radius || xpos < radius){
       xspeed *= -1;
     }
@@ -74,13 +90,13 @@ class circle{
 }
 
 circle[] circles = new circle[20];
-void setup(){
-  size(500, 500);
+public void setup(){
+  
   for(int i = 0; i < circles.length; i++){
     circles[i] = new circle();
   }
 }
-void draw(){
+public void draw(){
   background(255);
   for(int i = 0; i < circles.length; i++){
     float mouseDis = sqrt(pow(circles[i].xpos - mouseX, 2) + pow((circles[i].ypos - mouseY), 2));
@@ -108,6 +124,16 @@ void draw(){
         stroke(100, a);
         line(circles[i].xpos, circles[i].ypos, circles[j].xpos, circles[j].ypos);
       }
+    }
+  }
+}
+  public void settings() {  size(500, 500); }
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "Circle_Testing" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
     }
   }
 }

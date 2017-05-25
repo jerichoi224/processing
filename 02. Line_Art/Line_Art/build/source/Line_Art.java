@@ -1,3 +1,19 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class Line_Art extends PApplet {
+
 class point{
   float xpos, ypos; // coordinate of circle
   float xspeed, yspeed; // moving speed of circle
@@ -10,7 +26,7 @@ class point{
     ypos = random(0, height);
     radius = random(50, 80);
   }
-  void move(){
+  public void move(){
     if(xpos > width + 20 || xpos < - 20){
       xspeed *= -1;
     }
@@ -22,13 +38,13 @@ class point{
   }
 }
 point[] points = new point[1000];
-void setup(){
-  size(1000, 1000);
+public void setup(){
+  
   for(int i = 0; i < points.length; i++){
     points[i] = new point();
   }
 }
-void draw(){
+public void draw(){
   if(mousePressed)
     saveFrame("../screenshots/img####.jpg");
   stroke(0);
@@ -45,6 +61,16 @@ void draw(){
       if(points[i].lineCount == 10){
         break;
       }
+    }
+  }
+}
+  public void settings() {  size(1000, 1000); }
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "Line_Art" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
     }
   }
 }
