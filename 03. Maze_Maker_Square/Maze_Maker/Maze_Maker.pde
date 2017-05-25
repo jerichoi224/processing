@@ -38,7 +38,7 @@ boolean done = false;
 cell[][] cells;
 boolean[][] connected;
 void setup(){
-  size(1000,1000);
+  size(500,500);
   stroke(0);
   fill(255);
   background(255);
@@ -46,6 +46,7 @@ void setup(){
     cells = new cell[(height - 2*margin)/path][(width - 2*margin)/path];
     for(int i = 0; i < cells.length; i++){
       for(int j = 0; j < cells[0].length; j++){
+        // Initialize
         cells[i][j] = new cell((j*path) + margin, (i*path) + margin ,path);
         //set border
         if(i == 0){
@@ -62,6 +63,7 @@ void setup(){
       }
     }
     connected = new boolean[cells.length][cells[0].length];
+    //Look for a random path
     for(int i = 0; i < connected.length; i++){
       for(int j = 0; j < connected[0].length; j++){
         connected[i][j] = false;

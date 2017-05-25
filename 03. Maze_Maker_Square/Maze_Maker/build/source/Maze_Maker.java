@@ -62,6 +62,7 @@ public void setup(){
     cells = new cell[(height - 2*margin)/path][(width - 2*margin)/path];
     for(int i = 0; i < cells.length; i++){
       for(int j = 0; j < cells[0].length; j++){
+        // Initialize
         cells[i][j] = new cell((j*path) + margin, (i*path) + margin ,path);
         //set border
         if(i == 0){
@@ -78,6 +79,7 @@ public void setup(){
       }
     }
     connected = new boolean[cells.length][cells[0].length];
+    //Look for a random path
     for(int i = 0; i < connected.length; i++){
       for(int j = 0; j < connected[0].length; j++){
         connected[i][j] = false;
@@ -231,7 +233,7 @@ public void setup(){
   }
   save("../screenshots/maze.jpg");
 }
-  public void settings() {  size(1000,1000); }
+  public void settings() {  size(500,500); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "Maze_Maker" };
     if (passedArgs != null) {
